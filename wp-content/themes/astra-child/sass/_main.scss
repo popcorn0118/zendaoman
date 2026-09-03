@@ -2,5 +2,58 @@
 @use 'mixin' as *;
 
 .btn-anim {
+  .elementor-button {
+    overflow: hidden;
+  }
 
+ 
+  .elementor-button-text {
+    position: relative;
+    display: inline-block;
+    margin-right: 46px;
+    transition: margin 0.35s ease;
+    // 箭頭線條
+    &::after {
+        content: '';
+        position: absolute;
+        left: calc(100% + 14px);
+        top: 50%;
+        width: 30px;
+        height: 1px;
+        background-color: currentColor;
+        transform: translateY(-50%);
+        transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+
+    // 箭頭頭部
+    &::before {
+        content: '';
+        position: absolute;
+        left: calc(100% + 12px + 24px);
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        border-top: 1px solid currentColor;
+        border-right: 1px solid currentColor;
+        transform: translateY(-50%) rotate(45deg);
+        transition: transform 0.35s ease, opacity 0.35s ease;
+    }
+  }
+  
+
+  &:hover {
+    .elementor-button-text {
+        margin: 0 23px;
+    }
+
+    .elementor-button-text::after {
+      opacity: 0;
+      transform: translateY(-50%) translateX(24px);
+    }
+
+    .elementor-button-text::before {
+      opacity: 0;
+      transform: translateY(-50%) translateX(24px) rotate(45deg);
+    }
+  }
 }
