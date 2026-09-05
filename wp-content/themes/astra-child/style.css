@@ -53,4 +53,8 @@ Template: astra
   transform: translateY(-50%) translateX(24px) rotate(45deg);
 }
 
+footer .copyright * {
+  color: #FEFEFE;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -23,3 +23,18 @@ function child_enqueue_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
+
+
+// footer copyright
+add_shortcode('copyright', function () {
+    $year = date_i18n('Y');
+    $name = get_bloginfo('name');
+
+    return
+        '<small class="site-copyright">' .
+            '<span class="copyright-prefix">' . esc_html("Copyright © {$year} {$name}") . '</span> ' .
+            '<span class="line">|</span> ' .
+            '<span class="copyright-powered">Design by </span>' .
+            '<a href="https://www.nss.com.tw/" target="_blank">戰國策</a>' .
+        '</small>';
+});
