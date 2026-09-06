@@ -63,5 +63,20 @@ footer {
     * {
       color: $text-2;
     }
+    @include sm() {
+      .site-copyright {
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .copyright-prefix {
+        width: 100%;
+      }
+      .line {
+        display: none;
+      }
+    }
+    
   }
 }

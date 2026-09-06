@@ -1,2 +1,73 @@
 @use 'variable' as *;
 @use 'mixin' as *;
+
+.index-news {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.index-news-item {
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+  color: $text;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    
+  }
+}
+
+.index-news-item:hover .index-news-title {
+  color: $primary;
+}
+
+.index-news-thumb {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.index-news-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.index-news-item:hover .index-news-thumb img {
+  transform: scale(1.06);
+}
+
+.index-news-body {
+  padding: 20px 0 0 0;
+}
+
+.index-news-date {
+  display: inline-block;
+  font-size: 13px;
+  color: $primary;
+  margin-bottom: 8px;
+}
+
+.index-news-title {
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+  color: $text;
+  transition: color 0.3s ease;
+}
+
+.index-news-excerpt {
+  @include word-count(2);
+  font-size: 16px;
+  line-height: 1.7;
+  color: $text;
+  opacity: 0.75;
+  margin: 0;
+}

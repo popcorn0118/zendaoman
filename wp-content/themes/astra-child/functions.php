@@ -25,6 +25,12 @@ function child_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
 
+/**
+ * Includes
+ */
+require_once get_stylesheet_directory() . '/inc/index-news.php';
+
+
 // footer copyright
 add_shortcode('copyright', function () {
     $year = date_i18n('Y');
