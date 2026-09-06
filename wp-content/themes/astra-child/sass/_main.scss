@@ -58,6 +58,16 @@
   }
 }
 
+// header
+@media (min-width: 923px) and (max-width: 1080px) {
+  .ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo img {
+        max-width: 150px;
+  }
+  .main-header-menu .menu-link, .main-header-menu>a {
+    padding: 0 0.7rem;
+  }
+}
+
 footer {
   .copyright {
     * {
