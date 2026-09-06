@@ -40,7 +40,7 @@ add_shortcode( 'latest_news', function ( $atts ) {
 	?>
 	<div class="index-news">
 		<?php while ( $query->have_posts() ) : $query->the_post(); ?>
-			<a class="index-news-item" href="<?php the_permalink(); ?>">
+			<a class="index-news-item" href="#">
 				<?php if ( has_post_thumbnail() ) : ?>
 					<div class="index-news-thumb">
 						<?php the_post_thumbnail( 'medium' ); ?>
