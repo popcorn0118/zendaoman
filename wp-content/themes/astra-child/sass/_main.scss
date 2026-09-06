@@ -1,6 +1,33 @@
 @use 'variable' as *;
 @use 'mixin' as *;
 
+body {
+  position: relative;
+  // background-image: url(/wp-content/themes/astra-child/assets/img/banner-bg-2.png);
+  //   background-position: top center;
+  //   background-size: contain;
+  //   background-repeat: no-repeat;
+  &::before {
+      content: '';
+      background-image: url(/wp-content/themes/astra-child/assets/img/banner-bg-2.png);
+      background-position: top center;
+      background-size: auto;
+      background-repeat: no-repeat;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      opacity: 0.2;
+      width: 100%;
+      height: 100vh;
+      pointer-events: none;
+      @include md() {
+        background-position: top left;
+        background-size: cover;
+        height: 50vh;
+      }
+  }
+}
 .btn-anim {
   .elementor-button {
     overflow: hidden;
