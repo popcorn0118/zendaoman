@@ -44,3 +44,17 @@ add_shortcode('copyright', function () {
             '<a href="https://www.nss.com.tw/" target="_blank">戰國策</a>' .
         '</small>';
 });
+
+// 隱藏 Rank Math 麵包屑中的 "Page N" 分頁項目
+add_filter( 'rank_math/frontend/breadcrumb/settings', function( $settings ) {
+    $settings['show_pagination'] = false;
+    return $settings;
+} );
+
+// 修改 Astra 文章列表分頁的 Previous / Next 文字
+add_filter( 'astra_default_strings', function( $strings ) {
+    $strings['string-blog-navigation-previous'] = '<span class="ast-left-arrow" aria-hidden="true">&larr;</span> 上一頁';
+    $strings['string-blog-navigation-next']     = '下一頁 <span class="ast-right-arrow" aria-hidden="true">&rarr;</span>';
+    return $strings;
+} );
+

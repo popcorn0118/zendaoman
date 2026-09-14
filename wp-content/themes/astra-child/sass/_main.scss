@@ -17,7 +17,7 @@ body {
       top: 0;
       left: 0;
       display: block;
-      opacity: 0.2;
+      opacity: 0.3;
       width: 100%;
       height: 100vh;
       pointer-events: none;
@@ -85,6 +85,14 @@ body {
   }
 }
 
+.rank-math-breadcrumb {
+  text-align: center;
+  p {
+    margin-bottom: 0;
+    font-family: Noto Sans TC;
+  }
+}
+
 // header
 @media (min-width: 923px) and (max-width: 1080px) {
   .ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo img {
@@ -95,6 +103,10 @@ body {
   }
 }
 
+#chaty-widget-0 .chaty-widget {
+      bottom: 100px !important;
+      right: 20px !important;
+}
 footer {
   .copyright {
     * {

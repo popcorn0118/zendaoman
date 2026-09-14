@@ -47,7 +47,7 @@ add_shortcode( 'latest_news', function ( $atts ) {
 					</div>
 				<?php endif; ?>
 				<div class="index-news-body">
-					<span class="index-news-date"><?php echo esc_html( get_the_date( 'Y.m.d' ) ); ?></span>
+					<span class="index-news-date"><?php echo esc_html( get_the_date( 'Y-m-d' ) ); ?></span>
 					<h3 class="index-news-title"><?php the_title(); ?></h3>
 					<p class="index-news-excerpt">
 						<?php echo esc_html( trim( get_the_excerpt() ) ); ?>

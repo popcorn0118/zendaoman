@@ -1,0 +1,53 @@
+@use 'variable' as *;
+@use 'mixin' as *;
+
+body {
+    &.archive, &.category {
+        #primary {
+            margin-bottom: 4em;
+        }
+        #main {
+            background-color: rgba(#fff, 0.7);
+            padding: 5%;
+            border-radius: 5px;
+            box-shadow: 10px 0 20px rgba(#000, 0.03);
+            .ast-article-inner {
+                background-color: transparent;
+                box-shadow: 0 0 0 transparent;
+            }
+            .entry-header {
+                margin-bottom: 10px;
+            }
+            .entry-title {
+
+            }
+            article {
+                &:hover {
+                    .entry-title {
+                        color: $primary;
+                    }
+                }
+            }
+        }
+
+        .pagination {
+            .nav-links {
+                display: flex;
+                justify-content: start;
+                gap: 10px;
+                .page-numbers {
+                    border-radius: 50px;
+                    color: $text;
+                    &:hover {
+                        color: $primary;
+                    }
+                    &.current {
+                        background-color: $primary;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        
+    }
+}
