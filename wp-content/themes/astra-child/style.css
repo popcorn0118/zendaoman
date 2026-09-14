@@ -87,6 +87,26 @@ body::before {
   font-family: Noto Sans TC;
 }
 
+.table-rwd table {
+  margin-bottom: 0;
+}
+@media screen and (max-width: 767px) {
+  .table-rwd table {
+    border: 0 !important;
+  }
+  .table-rwd tr {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .table-rwd tr td {
+    width: 100%;
+    border: 0 !important;
+    padding: 0;
+    line-height: 1.8;
+  }
+}
+
 @media (min-width: 923px) and (max-width: 1080px) {
   .ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo img {
     max-width: 150px;
@@ -198,15 +218,43 @@ body.archive #main, body.category #main {
   border-radius: 5px;
   box-shadow: 10px 0 20px rgba(0, 0, 0, 0.03);
 }
-body.archive #main .ast-article-inner, body.category #main .ast-article-inner {
+@media screen and (max-width: 767px) {
+  body.archive #main, body.category #main {
+    padding: 30px 16px;
+  }
+}
+body.archive #main article, body.archive #main .ast-article-inner, body.category #main article, body.category #main .ast-article-inner {
   background-color: transparent;
   box-shadow: 0 0 0 transparent;
+}
+body.archive #main .ast-blog-featured-section, body.category #main .ast-blog-featured-section {
+  margin-bottom: 15px;
 }
 body.archive #main .entry-header, body.category #main .entry-header {
   margin-bottom: 10px;
 }
-body.archive #main article:hover .entry-title, body.category #main article:hover .entry-title {
+body.archive #main .entry-title, body.category #main .entry-title {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 10px;
+}
+body.archive #main article:hover .entry-title a, body.category #main article:hover .entry-title a {
   color: #A0502D;
+}
+@media screen and (max-width: 767px) {
+  body.archive #main article, body.category #main article {
+    padding: 15px 0px;
+  }
+}
+body.archive #main .ast-excerpt-container, body.category #main .ast-excerpt-container {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 body.archive .pagination .nav-links, body.category .pagination .nav-links {
   display: flex;

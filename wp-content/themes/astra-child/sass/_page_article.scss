@@ -11,22 +11,35 @@ body {
             padding: 5%;
             border-radius: 5px;
             box-shadow: 10px 0 20px rgba(#000, 0.03);
-            .ast-article-inner {
+            @include md() {
+                padding: 30px 16px;
+            }
+            article, .ast-article-inner {
                 background-color: transparent;
                 box-shadow: 0 0 0 transparent;
+            }
+            .ast-blog-featured-section {
+                margin-bottom: 15px;
             }
             .entry-header {
                 margin-bottom: 10px;
             }
             .entry-title {
-
+                @include word-count(2);
+                margin-bottom: 10px;
             }
             article {
                 &:hover {
-                    .entry-title {
+                    .entry-title a {
                         color: $primary;
                     }
                 }
+                @include md() {
+                    padding: 15px 0px;
+                }
+            }
+            .ast-excerpt-container {
+                @include word-count(2);
             }
         }
 

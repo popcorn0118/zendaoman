@@ -93,6 +93,30 @@ body {
   }
 }
 
+.table-rwd {
+  table {
+margin-bottom: 0;
+  }
+  @include md() {
+    table {
+      border: 0 !important;
+      
+    }
+    tr {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      td {
+        width: 100%;
+        border: 0 !important;
+        padding: 0;
+        line-height: 1.8;
+      }
+    }
+  }
+  
+}
+
 // header
 @media (min-width: 923px) and (max-width: 1080px) {
   .ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo img {
