@@ -1,0 +1,31 @@
+@use 'variable' as *;
+@use 'mixin' as *;
+
+body {
+  &.page-id-5081 {
+    .wpdm-all-packages-table {
+      border-top: 0 !important;
+      * {
+        font-size: 18px;
+      }
+    }
+    th {
+      background-color: #fff !important;
+      border-bottom: 1px solid $primary !important;
+    }
+    .wpdm-download-link {
+      font-size: 0 !important;
+    }
+
+    .wpdm-download-link::after {
+        content: "下載";
+        font-size: 16px;
+        position: absolute;
+    }
+    @media (max-width: 799px) {
+      #wpdmmydls-fb37e56a6ef147f75b2f816d2de26d95 tr {
+        border: 1px solid rgba(0, 0, 0, 0.2) !important;
+      }
+    }
+  }
+}

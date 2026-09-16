@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
 Theme Name: astra-child
 Author: Brainstorm Force
@@ -271,6 +272,30 @@ body.archive .pagination .nav-links .page-numbers:hover, body.category .paginati
 body.archive .pagination .nav-links .page-numbers.current, body.category .pagination .nav-links .page-numbers.current {
   background-color: #A0502D;
   color: #fff;
+}
+
+body.page-id-5081 .wpdm-all-packages-table {
+  border-top: 0 !important;
+}
+body.page-id-5081 .wpdm-all-packages-table * {
+  font-size: 18px;
+}
+body.page-id-5081 th {
+  background-color: #fff !important;
+  border-bottom: 1px solid #A0502D !important;
+}
+body.page-id-5081 .wpdm-download-link {
+  font-size: 0 !important;
+}
+body.page-id-5081 .wpdm-download-link::after {
+  content: "下載";
+  font-size: 16px;
+  position: absolute;
+}
+@media (max-width: 799px) {
+  body.page-id-5081 #wpdmmydls-fb37e56a6ef147f75b2f816d2de26d95 tr {
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

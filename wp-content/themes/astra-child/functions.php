@@ -58,3 +58,5 @@ add_filter( 'astra_default_strings', function( $strings ) {
     return $strings;
 } );
 
+
+

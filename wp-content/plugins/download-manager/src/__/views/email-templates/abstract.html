@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{subject}}</title>
+  <style type="text/css">
+    /* Reset */
+    body, table, td, p, a, li, blockquote {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table, td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+    img {
+      -ms-interpolation-mode: bicubic;
+      border: 0;
+      outline: none;
+      text-decoration: none;
+    }
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Links */
+    a {
+      color: #0891b2;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Button */
+    .button {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+      color: #ffffff !important;
+      text-decoration: none !important;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media only screen and (max-width: 600px) {
+      .email-container {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .mobile-padding {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+      .mobile-center {
+        text-align: center !important;
+      }
+      .geometric-left,
+      .geometric-right {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #ecfeff;">
+
+  <!-- Preheader -->
+  <div style="display: none; max-height: 0; overflow: hidden;">
+    {{subject}} &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  </div>
+
+  <!-- Email Wrapper -->
+  <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #ecfeff;">
+    <tr>
+      <td align="center" style="padding: 48px 16px;">
+
+        <!-- Email Container -->
+        <table role="presentation" class="email-container" width="580" border="0" cellspacing="0" cellpadding="0" style="margin: 0 auto; max-width: 580px; width: 100%;">
+
+          <!-- Logo Above Card -->
+          <tr>
+            <td align="center" style="padding: 0 0 24px 0;">
+              <a href="{{homeurl}}" style="text-decoration: none;">
+                {{img_logo}}
+              </a>
+            </td>
+          </tr>
+
+          <!-- Main Card -->
+          <tr>
+            <td style="position: relative;">
+
+              <!-- Card with Geometric Accent -->
+              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(8, 145, 178, 0.12);">
+
+                <!-- Top Geometric Bar -->
+                <tr>
+                  <td>
+                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td style="width: 40%; height: 6px; background: linear-gradient(90deg, #0891b2 0%, #06b6d4 100%);"></td>
+                        <td style="width: 20%; height: 6px; background: #22d3ee;"></td>
+                        <td style="width: 25%; height: 6px; background: linear-gradient(90deg, #67e8f9 0%, #a5f3fc 100%);"></td>
+                        <td style="width: 15%; height: 6px; background: #cffafe;"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Header Section -->
+                <tr>
+                  <td style="padding: 40px 40px 0 40px;" class="mobile-padding">
+                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td>
+                          <!-- Site Name -->
+                          <h1 style="margin: 0 0 6px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 24px; font-weight: 700; color: #0e7490; letter-spacing: -0.5px;">
+                            {{sitename}}
+                          </h1>
+                          <!-- Tagline -->
+                          <p style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 14px; color: #64748b;">
+                            {{site_tagline}}
+                          </p>
+                        </td>
+                        <td align="right" style="vertical-align: top;">
+                          <!-- Date Badge -->
+                          <span style="display: inline-block; padding: 6px 12px; background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%); color: #0891b2; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 12px; font-weight: 600; border-radius: 6px;">
+                            {{date}}
+                          </span>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Decorative Divider -->
+                <tr>
+                  <td style="padding: 24px 40px;" class="mobile-padding">
+                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td style="width: 60px; height: 3px; background: linear-gradient(90deg, #0891b2, #06b6d4); border-radius: 3px;"></td>
+                        <td style="width: 8px;"></td>
+                        <td style="width: 8px; height: 3px; background: #22d3ee; border-radius: 3px;"></td>
+                        <td style="width: 8px;"></td>
+                        <td style="width: 8px; height: 3px; background: #67e8f9; border-radius: 3px;"></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Content -->
+                <tr>
+                  <td style="padding: 0 40px 40px 40px;" class="mobile-padding">
+                    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 15px; line-height: 1.7; color: #475569;">
+                      {{message}}
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Bottom Section -->
+                <tr>
+                  <td style="padding: 0 40px 32px 40px;" class="mobile-padding">
+                    <!-- Thin Divider -->
+                    <div style="height: 1px; background: linear-gradient(90deg, #e0f2fe, #cffafe, #e0f2fe); margin-bottom: 24px;"></div>
+
+                    <!-- Social & Info Row -->
+                    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td style="vertical-align: middle;">
+                          <!-- Social Links -->
+                          <table role="presentation" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td style="padding-right: 8px;">
+                                <a href="{{facebook}}" style="display: inline-block; width: 36px; height: 36px; background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%); border-radius: 8px; text-align: center; line-height: 36px; text-decoration: none; color: #0891b2; font-family: Arial, sans-serif; font-size: 14px; font-weight: 600;">f</a>
+                              </td>
+                              <td>
+                                <a href="{{twitter}}" style="display: inline-block; width: 36px; height: 36px; background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%); border-radius: 8px; text-align: center; line-height: 36px; text-decoration: none; color: #0891b2; font-family: Arial, sans-serif; font-size: 14px; font-weight: 600;">X</a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                        <td align="right" style="vertical-align: middle;">
+                          <!-- Mini Geometric Element -->
+                          <table role="presentation" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td style="width: 24px; height: 4px; background: #a5f3fc; border-radius: 2px;"></td>
+                              <td style="width: 4px;"></td>
+                              <td style="width: 4px; height: 4px; background: #22d3ee; border-radius: 2px;"></td>
+                              <td style="width: 4px;"></td>
+                              <td style="width: 12px; height: 4px; background: #06b6d4; border-radius: 2px;"></td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+              </table>
+              <!-- End Card -->
+
+            </td>
+          </tr>
+          <!-- End Main Card -->
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="padding: 28px 24px;">
+              <p style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; font-size: 13px; line-height: 1.6; color: #0e7490;">
+                {{footer_text}}
+              </p>
+              <p style="margin: 16px 0 0 0;"><a href="https://www.wpdownloadmanager.com" style="color:#a5d8e6;font-size:11px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;text-decoration:none;">Powered by Download Manager</a></p>
+            </td>
+          </tr>
+
+        </table>
+        <!-- End Email Container -->
+
+      </td>
+    </tr>
+  </table>
+  <!-- End Email Wrapper -->
+
+</body>
+</html>

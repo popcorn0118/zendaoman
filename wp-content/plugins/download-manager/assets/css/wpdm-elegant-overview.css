@@ -1,0 +1,765 @@
+/**
+ * WPDM Elegant Overview Page Styles
+ * Clean, professional, and modern design for the statistics overview
+ */
+
+/* Modern Color Palette */
+:root {
+    --wpdm-primary: #2c3e50;
+    --wpdm-secondary: #3498db;
+    --wpdm-success: #27ae60;
+    --wpdm-warning: #f39c12;
+    --wpdm-info: #17a2b8;
+    --wpdm-light: #f8f9fa;
+    --wpdm-dark: #343a40;
+    --wpdm-muted: #6c757d;
+    --wpdm-white: #ffffff;
+    --wpdm-border: #dee2e6;
+    --wpdm-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    --wpdm-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --wpdm-radius: 12px;
+    --wpdm-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============================================================================
+   PACKAGE HEADER
+============================================================================= */
+
+.wpdm-package-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--wpdm-white);
+    padding: 1rem 1.5rem;
+    border-radius: var(--wpdm-radius);
+    margin-bottom: 2rem;
+    box-shadow: var(--wpdm-shadow);
+}
+
+.package-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+}
+
+.package-info i {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+.package-label {
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.package-name {
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* =============================================================================
+   STATS GRID
+============================================================================= */
+
+.wpdm-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.wpdm-stat-card {
+    background: var(--wpdm-white);
+    border: 1px solid var(--wpdm-border);
+    border-radius: var(--wpdm-radius);
+    padding: 2rem;
+    box-shadow: var(--wpdm-shadow);
+    transition: var(--wpdm-transition);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.wpdm-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: var(--wpdm-transition);
+}
+
+.wpdm-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--wpdm-shadow-hover);
+}
+
+.wpdm-stat-card:hover::before {
+    height: 6px;
+}
+
+/* Individual Card Colors */
+.today-card::before {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.month-card::before {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.year-card::before {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.total-card::before {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+/* Stat Icons */
+.stat-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--wpdm-white);
+    flex-shrink: 0;
+    position: relative;
+}
+
+.today-card .stat-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.month-card .stat-icon {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.year-card .stat-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.total-card .stat-icon {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.stat-icon::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: inherit;
+    z-index: -1;
+    opacity: 0.3;
+    transform: scale(1.1);
+    transition: var(--wpdm-transition);
+}
+
+.wpdm-stat-card:hover .stat-icon::after {
+    transform: scale(1.2);
+    opacity: 0.2;
+}
+
+/* Stat Content */
+.stat-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--wpdm-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--wpdm-primary);
+    margin-bottom: 0.25rem;
+}
+
+.stat-subtitle {
+    font-size: 0.9rem;
+    color: var(--wpdm-muted);
+    font-weight: 500;
+}
+
+/* =============================================================================
+   CHART CONTAINER
+============================================================================= */
+
+.wpdm-chart-container {
+    background: var(--wpdm-white);
+    border: 1px solid var(--wpdm-border);
+    border-radius: var(--wpdm-radius);
+    box-shadow: var(--wpdm-shadow);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+/* Chart Header */
+.chart-header {
+    background: #f8f9fa;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--wpdm-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.chart-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+}
+
+.chart-title i {
+    font-size: 1.5rem;
+    color: var(--wpdm-secondary);
+}
+
+.chart-title h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--wpdm-primary);
+    margin: 0;
+}
+
+.chart-info {
+    display: flex;
+    gap: 1rem;
+}
+
+.peak-day {
+    background: rgba(52, 152, 219, 0.1);
+    color: var(--wpdm-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.peak-day i {
+    color: #f39c12;
+}
+
+/* Chart Wrapper */
+.chart-wrapper {
+    padding: 2rem;
+    background: var(--wpdm-white);
+}
+
+.chart-canvas {
+    height: 400px;
+    width: 100%;
+}
+
+/* Chart Controls */
+.chart-controls {
+    background: var(--wpdm-light);
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--wpdm-border);
+}
+
+.controls-form {
+    margin: 0;
+}
+
+.control-group {
+    display: flex;
+    align-items: end;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.control-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.control-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--wpdm-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+}
+
+.control-label i {
+    color: var(--wpdm-secondary);
+    font-size: 0.8rem;
+}
+
+.elegant-select {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--wpdm-border);
+    border-radius: 8px;
+    background: var(--wpdm-white);
+    color: var(--wpdm-primary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    min-width: 120px;
+    transition: var(--wpdm-transition);
+    cursor: pointer;
+}
+
+.elegant-select:focus {
+    outline: none;
+    border-color: var(--wpdm-secondary);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.btn-elegant {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: var(--wpdm-white) !important;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--wpdm-transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.btn-elegant:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+}
+
+.btn-elegant:active {
+    transform: translateY(0);
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN
+============================================================================= */
+
+@media (max-width: 768px) {
+    .wpdm-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .wpdm-stat-card {
+        padding: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .stat-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .chart-header {
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .chart-wrapper {
+        padding: 1rem;
+    }
+
+    .chart-canvas {
+        height: 300px;
+    }
+
+    .chart-controls {
+        padding: 1rem;
+    }
+
+    .control-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .control-item {
+        align-items: stretch;
+    }
+
+    .elegant-select,
+    .btn-elegant {
+        width: 100%;
+    }
+
+    .package-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wpdm-stat-card {
+        padding: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .chart-title h3 {
+        font-size: 1.2rem;
+    }
+
+    .chart-canvas {
+        height: 250px;
+    }
+}
+
+/* =============================================================================
+   LOADING & ANIMATION STATES
+============================================================================= */
+
+.wpdm-stat-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.wpdm-stat-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.wpdm-stat-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.wpdm-stat-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.wpdm-stat-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.wpdm-chart-container {
+    animation: fadeIn 0.8s ease-out 0.5s both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* =============================================================================
+   ENHANCED ANALYTICS SECTIONS
+============================================================================= */
+
+.wpdm-analytics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.wpdm-analytics-card {
+    background: var(--wpdm-white);
+    border: 1px solid var(--wpdm-border);
+    border-radius: var(--wpdm-radius);
+    padding: 1.5rem;
+    box-shadow: var(--wpdm-shadow);
+    transition: var(--wpdm-transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.wpdm-analytics-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: var(--wpdm-transition);
+}
+
+.wpdm-analytics-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--wpdm-shadow-hover);
+}
+
+.wpdm-analytics-card:hover::before {
+    height: 5px;
+}
+
+.analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--wpdm-light);
+    padding-bottom: 1rem;
+}
+
+.analytics-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.analytics-title i {
+    color: var(--wpdm-secondary);
+    font-size: 1.25rem;
+}
+
+.analytics-title h3 {
+    margin: 0;
+    color: var(--wpdm-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.analytics-subtitle {
+    color: var(--wpdm-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.analytics-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.analytics-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: var(--wpdm-light);
+    border-radius: 8px;
+    transition: var(--wpdm-transition);
+    border: 1px solid transparent;
+}
+
+.analytics-item:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+    border-color: var(--wpdm-border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.item-rank {
+    font-weight: 700;
+    color: var(--wpdm-secondary);
+    font-size: 1rem;
+    min-width: 35px;
+}
+
+.item-icon {
+    font-size: 1.25rem;
+    min-width: 35px;
+    color: var(--wpdm-primary);
+}
+
+.item-details {
+    flex: 1;
+    margin-left: 0.75rem;
+}
+
+.item-name {
+    font-weight: 600;
+    color: var(--wpdm-primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+}
+
+.item-count {
+    color: var(--wpdm-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.item-percentage {
+    font-weight: 600;
+    color: var(--wpdm-success);
+    font-size: 0.95rem;
+    min-width: 60px;
+    text-align: right;
+}
+
+.item-bar {
+    flex: 1;
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    margin-left: 1rem;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--wpdm-secondary), var(--wpdm-success));
+    border-radius: 3px;
+    transition: width 1s ease-in-out;
+}
+
+.item-time {
+    font-weight: 700;
+    color: var(--wpdm-warning);
+    min-width: 70px;
+    font-size: 0.95rem;
+}
+
+.item-type {
+    font-weight: 600;
+    color: var(--wpdm-info);
+    min-width: 90px;
+    font-size: 0.95rem;
+}
+
+/* Additional stat cards styling */
+.users-card .stat-icon {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+}
+
+.ips-card .stat-icon {
+    background: linear-gradient(135deg, #17a2b8 0%, #20c997 100%);
+}
+
+.users-card::before {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+}
+
+.ips-card::before {
+    background: linear-gradient(135deg, #17a2b8 0%, #20c997 100%);
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN FOR ANALYTICS
+============================================================================= */
+
+@media (max-width: 768px) {
+    .wpdm-analytics-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .wpdm-analytics-card {
+        padding: 1rem;
+    }
+
+    .analytics-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .analytics-item {
+        padding: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .item-bar {
+        width: 100%;
+        margin: 0.5rem 0 0 0;
+        order: 10;
+    }
+
+    .item-percentage {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .analytics-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        text-align: left;
+    }
+
+    .item-details {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .item-bar {
+        width: 100%;
+        margin: 0;
+    }
+
+    .item-percentage {
+        align-self: flex-end;
+    }
+}
+
+/* =============================================================================
+   ACCESSIBILITY IMPROVEMENTS
+============================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.wpdm-stat-card:focus-within {
+    outline: 2px solid var(--wpdm-secondary);
+    outline-offset: 2px;
+}
+
+.elegant-select:focus,
+.btn-elegant:focus {
+    outline: 2px solid var(--wpdm-secondary);
+    outline-offset: 2px;
+}
