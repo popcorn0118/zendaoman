@@ -121,6 +121,13 @@ body::before {
   right: 20px !important;
 }
 
+.chaty-cta-button {
+  background-color: #A0502D !important;
+}
+.chaty-cta-button circle, .chaty-cta-button ellipse {
+  fill: #A0502D !important;
+}
+
 footer .copyright * {
   color: #FEFEFE;
 }
@@ -296,6 +303,64 @@ body.page-id-5081 .wpdm-download-link::after {
   body.page-id-5081 #wpdmmydls-fb37e56a6ef147f75b2f816d2de26d95 tr {
     border: 1px solid rgba(0, 0, 0, 0.2) !important;
   }
+}
+
+.photo-album-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media screen and (max-width: 767px) {
+  .photo-album-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .photo-album-list {
+    grid-template-columns: 1fr;
+  }
+}
+.photo-album-list .photo-album-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #F0E6C5;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.photo-album-list .photo-album-item:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+.photo-album-list .photo-album-item:hover .photo-album-thumb img {
+  transform: scale(1.05);
+}
+.photo-album-list .photo-album-item:hover .photo-album-title {
+  color: #A0502D;
+}
+.photo-album-list .photo-album-thumb {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background-color: #FAF5E5;
+}
+.photo-album-list .photo-album-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+.photo-album-list .photo-album-title {
+  margin: 14px 16px 4px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4A4A4A;
+  transition: 0.3s;
+}
+.photo-album-list .photo-album-count {
+  margin: 0 16px 16px;
+  font-size: 14px;
+  color: #A0502D;
 }
 
 /*# sourceMappingURL=style.css.map */

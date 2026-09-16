@@ -131,6 +131,12 @@ margin-bottom: 0;
       bottom: 100px !important;
       right: 20px !important;
 }
+.chaty-cta-button {
+  background-color: $primary !important;
+  circle, ellipse {
+    fill: $primary !important;
+  }
+}
 footer {
   .copyright {
     * {

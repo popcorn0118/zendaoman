@@ -1,0 +1,67 @@
+@use 'variable' as *;
+@use 'mixin' as *;
+
+.photo-album-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @include md() {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    @include sm() {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-album-item {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid $bg-d;
+        border-radius: 8px;
+        background-color: #fff;
+        overflow: hidden;
+        transition: 0.3s;
+
+        &:hover {
+            box-shadow: 0 5px 15px rgba(#000, 0.08);
+
+            .photo-album-thumb img {
+                transform: scale(1.05);
+            }
+
+            .photo-album-title {
+                color: $primary;
+            }
+        }
+    }
+
+    .photo-album-thumb {
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background-color: $bg;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+    }
+
+    .photo-album-title {
+        margin: 14px 16px 4px;
+        font-size: 18px;
+        font-weight: bold;
+        color: $text;
+        transition: 0.3s;
+    }
+
+    .photo-album-count {
+        margin: 0 16px 16px;
+        font-size: 14px;
+        color: $primary;
+    }
+}
+
