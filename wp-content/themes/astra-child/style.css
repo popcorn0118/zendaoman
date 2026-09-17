@@ -447,20 +447,30 @@ body.page-id-5081 .wpdm-download-link::after {
 .photo-album-single .photo-album-single-gallery {
   margin-top: 8px;
 }
-@media screen and (max-width: 576px) {
-  .photo-album-single .photo-album-single-gallery .fg-justified .fg-item {
-    width: calc(50% - 2px) !important;
+@media screen and (max-width: 767px) {
+  .photo-album-single .photo-album-single-gallery .fg-justified {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 4px !important;
     height: auto !important;
-    aspect-ratio: 1/1;
-    margin: 0 4px 4px 0 !important;
   }
-  .photo-album-single .photo-album-single-gallery .fg-justified .fg-item:nth-child(2n) {
-    margin-right: 0 !important;
+  .photo-album-single .photo-album-single-gallery .fg-justified .fg-item {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    aspect-ratio: 3/2;
+    margin: 0 !important;
   }
-  .photo-album-single .photo-album-single-gallery .fg-justified .fg-item.fg-positioned .fg-thumb,
-  .photo-album-single .photo-album-single-gallery .fg-justified .fg-item.fg-positioned .fg-image-wrap {
+  .photo-album-single .photo-album-single-gallery .fg-justified .fg-item .fg-thumb,
+  .photo-album-single .photo-album-single-gallery .fg-justified .fg-item .fg-image-wrap {
     width: 100% !important;
     height: 100% !important;
+  }
+  .photo-album-single .photo-album-single-gallery .fg-justified .fg-item .fg-image {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
   }
 }
 

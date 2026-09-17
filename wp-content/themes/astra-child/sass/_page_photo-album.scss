@@ -154,25 +154,44 @@
     .photo-album-single-gallery {
         margin-top: 8px;
 
-        // FooGallery 的 Justified 版型是用 JS 依螢幕寬度動態算出每張照片的
-        // 寬高 (inline style)，手機變窄時可能會算成一列只放 1 張。
-        // 這裡用 !important 強制蓋掉，讓手機版最少維持一列兩張 (2 欄)。
-        @include sm() {
-            .fg-justified .fg-item {
-                width: calc(50% - 2px) !important;
+        // FooGallery 的 Justified 版型是用 JS 把每張照片設成 position:absolute
+        // 並算好 top/left 座標「一欄往下疊」，外層容器也被 JS 塞了一個寫死的
+        // px 高度。只蓋 width 沒有用──照片還是會疊在同一欄，只是變窄、右邊
+        // 留白 (量測過：4 張照片的 left 都是同一個值，top 一路往下疊)。
+        // 要真的變 2 欄，必須連同 position 一起蓋掉，改用 CSS Grid 排版。
+        // FooGallery 判斷「一排放幾張」不是照固定斷點，是依照片比例動態算的，
+        // 所以 576~767px 這段中間寬度也可能被判成一排一張，斷點抓寬一點到 md。
+        @include md() {
+            .fg-justified {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 4px !important;
                 height: auto !important;
-                aspect-ratio: 1 / 1;
-                margin: 0 4px 4px 0 !important;
             }
 
-            .fg-justified .fg-item:nth-child(2n) {
-                margin-right: 0 !important;
+            .fg-justified .fg-item {
+                position: static !important;
+                width: auto !important;
+                height: auto !important;
+                aspect-ratio: 3 / 2; // 原始照片大多是 6:4 (=3:2)，維持同樣比例，不裁成正方形
+                margin: 0 !important;
             }
 
-            .fg-justified .fg-item.fg-positioned .fg-thumb,
-            .fg-justified .fg-item.fg-positioned .fg-image-wrap {
+            .fg-justified .fg-item .fg-thumb,
+            .fg-justified .fg-item .fg-image-wrap {
                 width: 100% !important;
                 height: 100% !important;
+            }
+
+            // FooGallery 原本的 .fg-image 規則是 width:100%;height:auto;min-height:100%，
+            // 這招只在「框的長寬比跟照片本身比例接近」時才不會變形。我們把框強制
+            // 改成固定 3:2 後，比例不同的照片會被硬撐高、寬度卻沒有等比例放大而
+            // 拉伸變形，所以這裡改用 object-fit: cover 正確裁切，不拉伸。
+            .fg-justified .fg-item .fg-image {
+                width: 100% !important;
+                height: 100% !important;
+                min-height: 0 !important;
+                object-fit: cover !important;
             }
         }
     }
