@@ -1,6 +1,20 @@
 @use 'variable' as *;
 @use 'mixin' as *;
 
+.photo-album-summary {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: $text;
+    opacity: 0.75;
+
+    @include sm() {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
 .photo-album-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -62,6 +76,118 @@
         margin: 0 16px 16px;
         font-size: 14px;
         color: $primary;
+    }
+}
+
+.photo-album-single {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 200px 20px 60px;
+
+    @include sm() {
+        padding: 120px 16px 40px;
+    }
+
+    .photo-album-single-back {
+        margin: 16px 0;
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: $text;
+            font-size: 15px;
+            transition: 0.3s;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    .photo-album-single-back-bottom {
+        margin: 40px 0 0;
+    }
+
+    .photo-album-single-title {
+        margin: 0 0 8px;
+        font-size: 26px;
+        color: $primary-d;
+
+        @include sm() {
+            font-size: 21px;
+        }
+    }
+
+    .photo-album-single-count {
+        margin: 0 0 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $bg-d;
+        font-size: 14px;
+        color: $primary;
+
+        @include sm() {
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+        }
+    }
+
+    .photo-album-single-gallery {
+        margin-top: 8px;
+
+        // FooGallery 的 Justified 版型是用 JS 依螢幕寬度動態算出每張照片的
+        // 寬高 (inline style)，手機變窄時可能會算成一列只放 1 張。
+        // 這裡用 !important 強制蓋掉，讓手機版最少維持一列兩張 (2 欄)。
+        @include sm() {
+            .fg-justified .fg-item {
+                width: calc(50% - 2px) !important;
+                height: auto !important;
+                aspect-ratio: 1 / 1;
+                margin: 0 4px 4px 0 !important;
+            }
+
+            .fg-justified .fg-item:nth-child(2n) {
+                margin-right: 0 !important;
+            }
+
+            .fg-justified .fg-item.fg-positioned .fg-thumb,
+            .fg-justified .fg-item.fg-positioned .fg-image-wrap {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+    }
+}
+
+.photo-album-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 32px;
+
+    .photo-album-page-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 36px;
+        height: 36px;
+        padding: 0 6px;
+        border: 1px solid $bg-d;
+        border-radius: 4px;
+        color: $text;
+        transition: 0.3s;
+
+        &:hover {
+            border-color: $primary;
+            color: $primary;
+        }
+
+        &.is-current {
+            background-color: $primary;
+            border-color: $primary;
+            color: #fff;
+        }
     }
 }
 
