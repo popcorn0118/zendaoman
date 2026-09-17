@@ -18,31 +18,26 @@
 .photo-album-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 36px 30px;
 
     @include md() {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        gap: 30px 24px;
     }
 
     @include sm() {
         grid-template-columns: 1fr;
+        gap: 32px;
     }
 
     .photo-album-item {
-        display: flex;
-        flex-direction: column;
-        border: 1px solid $bg-d;
-        border-radius: 8px;
-        background-color: #fff;
-        overflow: hidden;
-        transition: 0.3s;
+        display: block;
+        color: $text;
+        text-decoration: none;
 
         &:hover {
-            box-shadow: 0 5px 15px rgba(#000, 0.08);
-
             .photo-album-thumb img {
-                transform: scale(1.05);
+                transform: scale(1.06);
             }
 
             .photo-album-title {
@@ -52,30 +47,53 @@
     }
 
     .photo-album-thumb {
+        position: relative;
         aspect-ratio: 4 / 3;
         overflow: hidden;
         background-color: $bg;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0 0 0 1px rgba($primary-d, 0.12);
+            pointer-events: none;
+            z-index: 2;
+        }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.3s;
+            display: block;
+            transition: transform 0.4s ease;
         }
     }
 
     .photo-album-title {
-        margin: 14px 16px 4px;
-        font-size: 18px;
-        font-weight: bold;
+        display: block;
+        margin: 18px 0 8px;
+        font-size: 19px;
+        font-weight: 600;
+        line-height: 1.5;
         color: $text;
-        transition: 0.3s;
+        transition: color 0.3s ease;
     }
 
     .photo-album-count {
-        margin: 0 16px 16px;
-        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
         color: $primary;
+        letter-spacing: 0.05em;
+
+        &::before {
+            content: '';
+            width: 16px;
+            height: 1px;
+            background-color: $acc;
+        }
     }
 }
 
@@ -163,8 +181,8 @@
 .photo-album-pagination {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 32px;
+    gap: 10px;
+    margin-top: 40px;
 
     .photo-album-page-link {
         display: inline-flex;
@@ -173,19 +191,16 @@
         min-width: 36px;
         height: 36px;
         padding: 0 6px;
-        border: 1px solid $bg-d;
-        border-radius: 4px;
+        border-radius: 50px;
         color: $text;
         transition: 0.3s;
 
         &:hover {
-            border-color: $primary;
             color: $primary;
         }
 
         &.is-current {
             background-color: $primary;
-            border-color: $primary;
             color: #fff;
         }
     }

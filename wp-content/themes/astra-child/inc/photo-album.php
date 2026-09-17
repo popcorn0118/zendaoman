@@ -139,10 +139,12 @@ add_shortcode( 'photo_album_list', function ( $atts ) {
 			<a class="photo-album-item" href="<?php echo esc_url( $gallery_url ); ?>">
 				<div class="photo-album-thumb">
 					<?php
+					// 卡片實際顯示寬度可能到 400px 以上，用 medium (300px) 會被拉伸模糊，
+					// 改用 large (WP 預設長邊 1024px) 讓圖片有足夠解析度。
 					if ( $cover_id ) {
-						echo wp_get_attachment_image( $cover_id, 'medium' );
+						echo wp_get_attachment_image( $cover_id, 'large' );
 					} elseif ( has_post_thumbnail() ) {
-						the_post_thumbnail( 'medium' );
+						the_post_thumbnail( 'large' );
 					}
 					?>
 				</div>
