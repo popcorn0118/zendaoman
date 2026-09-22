@@ -1,18 +1,81 @@
 @use 'variable' as *;
 @use 'mixin' as *;
 
-.photo-album-summary {
+.photo-album-toolbar {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
     margin-bottom: 16px;
-    font-size: 14px;
-    color: $text;
-    opacity: 0.75;
 
     @include sm() {
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
     }
+}
+
+.photo-album-summary {
+    font-size: 16px;
+    font-family: "Noto Sans TC";
+    color: $text;
+    opacity: 0.75;
+}
+
+.photo-album-order {
+    position: relative;
+    display: inline-flex;
+
+    .photo-album-order-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        height: 36px;
+        padding: 0 34px 0 18px;
+        border-radius: 50px;
+        border: 1px solid $primary;
+        background-color: $primary;
+        font-size: 16px;
+        font-family: "Noto Sans TC";
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+
+        &:hover,
+        &:focus {
+            background-color: $primary-d;
+            border-color: $primary-d;
+        }
+
+        // 統一 select 展開選單裡文字顏色，實心按鈕本體是深色但選單本體要維持可讀
+        option {
+            color: $text;
+            background-color: #fff;
+        }
+    }
+
+    .photo-album-order-arrow {
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        width: 10px;
+        height: 6px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #fff;
+
+        svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.photo-album-results[aria-busy="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
 }
 
 .photo-album-list {
