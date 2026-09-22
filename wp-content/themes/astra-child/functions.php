@@ -59,5 +59,12 @@ add_filter( 'astra_default_strings', function( $strings ) {
     return $strings;
 } );
 
+// 文章單頁下方的上一篇 / 下一篇，限制在同分類內切換
+add_filter( 'astra_single_post_navigation', function( $args ) {
+    $args['in_same_term'] = true;
+    $args['taxonomy']     = 'category';
+    return $args;
+} );
+
 
 
