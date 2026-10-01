@@ -66,5 +66,20 @@ add_filter( 'astra_single_post_navigation', function( $args ) {
     return $args;
 } );
 
+// 文章開啟「順序」欄位（文章屬性），給下面依舊站順序排列的分類使用
+add_action( 'init', function() {
+    add_post_type_support( 'post', 'page-attributes' );
+} );
+
+// 楊師兄的話、修道感言、仙佛聖誕日期：照舊站順序排列（順序小 → 大，同順序再依日期舊 → 新）
+add_action( 'pre_get_posts', function( $query ) {
+    if ( is_admin() || ! $query->is_main_query() ) {
+        return;
+    }
+    if ( $query->is_category( array( 'yang-talks', 'spiritual-reflections', 'deity-birthdays' ) ) ) {
+        $query->set( 'orderby', array( 'menu_order' => 'ASC', 'date' => 'ASC' ) );
+    }
+} );
+
 
 
