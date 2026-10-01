@@ -81,20 +81,5 @@ add_action( 'pre_get_posts', function( $query ) {
     }
 } );
 
-// 文章沒設精選圖時，改用預設圖（媒體庫「預設精選圖」）
-// 目前先套用在修道感言，確認效果後再擴大到其他分類
-define( 'ZDM_DEFAULT_THUMBNAIL_ID', 5347 );
-define( 'ZDM_DEFAULT_THUMBNAIL_CATS', array( 'spiritual-reflections' ) );
-
-add_filter( 'default_post_metadata', function( $value, $object_id, $meta_key, $single ) {
-    if ( '_thumbnail_id' !== $meta_key || 'post' !== get_post_type( $object_id ) ) {
-        return $value;
-    }
-    if ( ! has_category( ZDM_DEFAULT_THUMBNAIL_CATS, $object_id ) ) {
-        return $value;
-    }
-    return $single ? ZDM_DEFAULT_THUMBNAIL_ID : array( ZDM_DEFAULT_THUMBNAIL_ID );
-}, 10, 4 );
-
 
 
