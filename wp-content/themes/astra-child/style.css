@@ -310,10 +310,11 @@ body.page-id-5081 .wpdm-download-link::after {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 36px;
 }
 @media screen and (max-width: 576px) {
   .photo-album-toolbar {
+    margin-bottom: 28px;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -379,18 +380,18 @@ body.page-id-5081 .wpdm-download-link::after {
 .photo-album-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 36px 30px;
+  gap: 48px 30px;
 }
 @media screen and (max-width: 767px) {
   .photo-album-list {
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px 24px;
+    gap: 40px 24px;
   }
 }
 @media screen and (max-width: 576px) {
   .photo-album-list {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 36px;
   }
 }
 .photo-album-list .photo-album-item {
@@ -425,28 +426,30 @@ body.page-id-5081 .wpdm-download-link::after {
   display: block;
   transition: transform 0.4s ease;
 }
+.photo-album-list .photo-album-meta {
+  display: flex;
+  align-items: center;
+  margin-top: 14px;
+  line-height: 1.4;
+}
+.photo-album-list .photo-album-date::after {
+  content: "‧";
+  margin: 0 4px;
+}
 .photo-album-list .photo-album-title {
   display: block;
-  margin: 18px 0 8px;
+  margin: 10px 0 0;
   font-size: 19px;
   font-weight: 600;
   line-height: 1.5;
   color: #4A4A4A;
   transition: color 0.3s ease;
 }
+.photo-album-list .photo-album-date,
 .photo-album-list .photo-album-count {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
   font-size: 13px;
   color: #A0502D;
   letter-spacing: 0.05em;
-}
-.photo-album-list .photo-album-count::before {
-  content: "";
-  width: 16px;
-  height: 1px;
-  background-color: #FFCC66;
 }
 
 .photo-album-single {
@@ -554,3 +557,5 @@ body.page-id-5081 .wpdm-download-link::after {
   background-color: #A0502D;
   color: #fff;
 }
+
+/*# sourceMappingURL=style.css.map */

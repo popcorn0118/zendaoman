@@ -134,8 +134,11 @@ function astra_child_render_photo_album_results( WP_Query $query, $order, $paged
 					}
 					?>
 				</div>
+				<span class="photo-album-meta">
+					<span class="photo-album-date"><?php echo esc_html( get_the_date( 'Y-m-d' ) ); ?></span>
+					<span class="photo-album-count"><?php echo esc_html( $photo_count ); ?>張照片</span>
+				</span>
 				<span class="photo-album-title"><?php the_title(); ?></span>
-				<span class="photo-album-count"><?php echo esc_html( $photo_count ); ?>張照片</span>
 			</a>
 		<?php endwhile; wp_reset_postdata(); ?>
 	</div>
